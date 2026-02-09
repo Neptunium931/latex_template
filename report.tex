@@ -1,6 +1,7 @@
 \documentclass{report}
 
 \input{preamble}
+\input{macros}
 
 \title{\Huge{Some Class}\\Random Examples}
 \author{\Huge{Neptunium93}}
@@ -26,10 +27,21 @@ int main(int argc, char *argv[]) {
 % \lstinputlisting[language=C++,caption={External File Example},label={lst:external-file}]{file.cpp}
 
 \begin{tabular}{l V{3.5cm} r}
-  foo & blah      & bar \\
+  foo & \cellcolor[HTML]{0044AA} \textcolor[HTML]{DDDDDD}{blah}      & bar \\
   foo & blah blah & bar \\
   foo & blah blah blah blah blah blah
-      & bar \\
+      & \cellcolor{solarized@red} bar \\
 \end{tabular}
+
+
+\begin{tikzpicture}[scale=1]
+  \draw[thick] (0,0) rectangle (12.8,-2) node[pos=.5] {Stack};
+  \draw[<-, thick] (12.9, -2) -- (13.4, -2) node[midway, above] {rsp};
+  \node at (0, 0.2) {63};
+  \node at (12.8, 0.2) {0};
+
+  \draw[thick] (12.6,-2) rectangle (12.8,-2.5) node[pos=.5] {/};
+\end{tikzpicture}
+
 
 \end{document}
