@@ -56,3 +56,61 @@
         rulesepcolor=\color{solarized@base2},
         showstringspaces=false
 }
+
+\lstdefinelanguage{x86asm}{
+sensitive=true,
+morekeywords={
+mov,lea,push,pop,add,sub,imul,idiv,mul,div,and,or,xor,test,cmp,jmp,je,jne,jz,jnz,ja,jb,jae,jbe,jo,jno,js,jns,
+call,ret,enter,leave,inc,dec,neg,not,syscall,int,iret,cli,sti,
+nop,rep,repz,repnz,stos,stosb,stosd,stosq,stosw,cmps,scas,lods,ins,outs
+},
+morekeywords=[2]{
+.section,.text,.data,.bss,.globl,.global,.align,.ascii,.asciz,.byte,.word,.long,.quad,.org,.type,.size,
+.intel_syntax,.att_syntax,.cfi_startproc,.cfi_endproc,.cfi_def_cfa_offset,.cfi_offset
+},
+morekeywords=[3]{
+rax,rbx,rcx,rdx,rsi,rdi,rbp,rsp,
+r8,r9,r10,r11,r12,r13,r14,r15,
+eax,ebx,ecx,edx,esi,edi,ebp,esp,
+ax,bx,cx,dx,si,di,bp,sp,
+al,bl,cl,dl,ah,bh,ch,dh
+},
+morecomment=[l]{;},
+morecomment=[l]{//},
+morestring=[b]",
+morestring=[b]',
+alsoletter={\%,$,0,1,2,3,4,5,6,7,8,9,_,.},
+moredelim=[s][\color{solarized@orange}]{0x}{\ },
+moredelim=[s][\color{solarized@orange}]{0X}{\ },
+moredelim=[s][\color{solarized@magenta}]{$}{\ },
+moredelim=[s][\color{solarized@cyan}]{\%}{\ }
+}
+
+\lstset{
+language=x86asm,
+basicstyle=\ttfamily\small,
+keywordstyle=\color{solarized@green}\bfseries,      % instructions
+keywordstyle=[2]\color{solarized@yellow}\bfseries,  % directives
+keywordstyle=[3]\color{solarized@blue},             % registres
+identifierstyle=\color{solarized@base0},
+commentstyle=\color{solarized@base01}\itshape,
+stringstyle=\color{solarized@cyan},
+numberstyle=\tiny\color{solarized@base01},
+numbers=left,
+stepnumber=1,
+numbersep=8pt,
+tabsize=2,
+breaklines=true,
+breakatwhitespace=false,
+showstringspaces=false,
+frame=single,
+rulecolor=\color{solarized@base2},
+captionpos=b,
+columns=fullflexible,
+escapeinside={@}{@},
+literate={->}{{→
+→}}1 {<=}{{≤
+≤}}1 {>=}{{≥
+≥}}1,
+moredelim=**[is][\color{solarized@red}\bfseries]{@@}{@@} % highlight inline with @@...@@
+}
